@@ -19,6 +19,13 @@ export function Result() {
   const finished = cookie.answers.filter((a: number) => a !== 0).length === quesdata.length;
 
   ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+  const explanation = [
+    "Seberapa sosial dan ramah seseorang",
+    "Bagaimana orang cenderung memperlakukan orang lain dalam hubungan",
+    "Kecenderungan untuk mengontrol impuls dan memfasilitasi perilaku yang terarah pada tujuan",
+    "Kepercayaan diri, temperamen umum, dan kenyamanan dengan diri sendiri",
+    "Kesediaan orang untuk mencoba hal-hal baru dan kemampuan mereka untuk berpikir di luar kebiasaan",
+  ]
 
   const data = {
     labels: ["Extraversion", "Agreeableness", "Conscientiousness", "Emotional Stability", "Intellect/Imagination"],
@@ -54,7 +61,7 @@ export function Result() {
   }
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="flex flex-col items-center">
       {finished ? (
         <>
           <strong className="text-lg mt-4 text-text-primary">Hasil tes kamu</strong>
@@ -66,11 +73,13 @@ export function Result() {
             Penjelasan
           </a>
 
-          <div className="grid grid-cols-2 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 mt-4">
             {calculateResult(cookie.answers).map((o, i) => (
               <div key={i} className="flex flex-col items-center gap-2 w-full">
-                <p className="mb-4 text-lg text-center">
+                <p className="mb-4 text-lg text-center px-8">
                   {data.labels[i]}
+                  <br />
+                  <small className="text-xs text-text-secondary">{explanation[i]}</small>
                   <br />
                   <span className="text-2xl font-bold text-green-400">{o}</span>
                   <span className="text-text-secondary">/10</span>
@@ -80,7 +89,7 @@ export function Result() {
           </div>
 
           <Radar
-            className="-mt-24"
+            className="-mt-24 px-16 sm:px-0 py-16 sm:py-0"
             data={data}
             options={{
               scales: {
@@ -113,10 +122,10 @@ export function Result() {
         <span className="mb-8">Kamu belum menjawab semua pertanyaan pada kuesioner</span>
       )}
 
-      <div className="w-full px-2">
+      <div className="px-4">
         <p className={`${finished ?? "xl:-mt-24"} mb-4`}>Referensi:</p>
       </div>
-      <ul className="text-sm text-text-secondary flex flex-col gap-2 px-2">
+      <ul className="text-sm text-text-secondary flex flex-col gap-2 px-8">
         <li className="-indent-8 px-8">
           Goldberg, L. R. (1992).{" "}
           <i>The development of markers for the Big-Five factor structure. Psychological Assessment</i>. 4, 26-42.
@@ -142,7 +151,7 @@ export function Result() {
 
       <button
         onClick={() => navigate("/")}
-        className={`w-full p-2 mt-8 rounded-md mb-8 bg-surface-1 hover:bg-surface-12 text-lg ease-in-out transition-all`}
+        className={`p-2 px-4 mt-8 rounded-md mb-8 bg-surface-1 hover:bg-surface-12 text-lg ease-in-out transition-all`}
       >
         Beranda
       </button>

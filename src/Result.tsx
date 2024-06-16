@@ -113,10 +113,10 @@ export function Result() {
         <span className="mb-8">Kamu belum menjawab semua pertanyaan pada kuesioner</span>
       )}
 
-      <div className="w-full">
+      <div className="w-full px-2">
         <p className={`${finished ?? "xl:-mt-24"} mb-4`}>Referensi:</p>
       </div>
-      <ul className="text-sm text-text-secondary flex flex-col gap-2">
+      <ul className="text-sm text-text-secondary flex flex-col gap-2 px-2">
         <li className="-indent-8 px-8">
           Goldberg, L. R. (1992).{" "}
           <i>The development of markers for the Big-Five factor structure. Psychological Assessment</i>. 4, 26-42.

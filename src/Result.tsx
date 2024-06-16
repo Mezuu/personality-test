@@ -106,7 +106,7 @@ export function Result() {
 
       <button
         onClick={() => navigate("/")}
-        className="w-full p-2 xl:-mt-24 rounded-md mb-8 bg-surface-1 hover:bg-surface-12 text-lg ease-in-out transition-all"
+        className={`w-full p-2 ${finished ?? 'xl:-mt-24'} rounded-md mb-8 bg-surface-1 hover:bg-surface-12 text-lg ease-in-out transition-all`}
       >
         Beranda
       </button>

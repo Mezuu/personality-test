@@ -39,8 +39,8 @@ export function Test() {
                 setPage(page + 1);
               }
             }}
-            className={`w-full p-2 px-4 rounded-md text-xl bg-surface-1 hover:bg-surface-12 ease-in-out transition-all ${
-              5 - i === answer ? "bg-green-500 text-gray-900 hover:text-text-primary" : ""
+            className={`w-full p-2 px-4 rounded-md text-xl ease-in-out transition-all ${
+              5 - i === answer ? "bg-green-400 text-gray-900 hover:bg-green-500" : "bg-surface-1 hover:bg-surface-12"
             }`}
           >
             {o}

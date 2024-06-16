@@ -9,14 +9,16 @@ export function Test() {
   const [cookie, setCookie] = useCookies(["answers"]);
   const navigate = useNavigate();
 
-  const answer = parseInt(cookie.answers[page ?? 0]);
-  const finished = cookie.answers.filter((a: number) => a !== 0).length === data.length;
+  const finished = cookie.answers ? cookie.answers.filter((a: number) => a !== 0).length === data.length : false
+  const answer = cookie.answers ? parseInt(cookie.answers[page ?? 0]) : 0
 
   if (!cookie.answers) {
     setCookie(
       "answers",
       Array.from({ length: data.length }, () => 0)
     );
+  } else {
+
   }
 
   return (
